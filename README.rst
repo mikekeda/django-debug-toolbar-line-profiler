@@ -2,6 +2,14 @@
 Django Debug Toolbar Line Profile Panel
 =======================================
 
+.. image:: https://api.codacy.com/project/badge/Grade/27b4fb9c7d3c46abb7dac9a06d16698e
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/manual/mikekeda/django-debug-toolbar-line-profiler?utm_source=github.com&utm_medium=referral&utm_content=mikekeda/django-debug-toolbar-line-profiler&utm_campaign=Badge_Grade_Dashboard
+
+.. image:: https://requires.io/github/mikekeda/django-debug-toolbar-line-profiler/requirements.svg?branch=master
+     :target: https://requires.io/github/mikekeda/django-debug-toolbar-line-profiler/requirements/?branch=master
+     :alt: Requirements Status
+
 The `Django Debug Toolbar 
 <https://github.com/mikekeda/django-debug-toolbar-line-profiler>`_ is a configurable set of panels that display various
 debug information about the current request/response and when clicked, display
