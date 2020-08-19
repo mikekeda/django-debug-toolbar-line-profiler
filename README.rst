@@ -90,3 +90,8 @@ Here is an example::
 
     signals.profiler_setup.connect(register_profile_views,
                                    dispatch_uid='register_profile_views')
+
+
+.. image:: https://api.codacy.com/project/badge/Grade/27b4fb9c7d3c46abb7dac9a06d16698e
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/manual/mikekeda/django-debug-toolbar-line-profiler?utm_source=github.com&utm_medium=referral&utm_content=mikekeda/django-debug-toolbar-line-profiler&utm_campaign=Badge_Grade_Dashboard
