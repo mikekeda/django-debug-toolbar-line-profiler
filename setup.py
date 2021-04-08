@@ -13,6 +13,7 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests', 'example')),
     install_requires=[
+        'django>=3.0'
         'django-debug-toolbar>=2.0',
         'line_profiler>=1.0b3',
         'six>=1.10',
@@ -27,11 +28,9 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )

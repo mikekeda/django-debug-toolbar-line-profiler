@@ -29,7 +29,7 @@ class DjangoDebugToolbarStats(Stats):
         if self.__root is None:
             filename = view_func.__code__.co_filename
             firstlineno = view_func.__code__.co_firstlineno
-            for func, (cc, nc, tt, ct, callers) in self.stats.items():
+            for func, (_, __, ___, ____, callers) in self.stats.items():
                 if (len(callers) >= 0
                         and func[0] == filename
                         and func[1] == firstlineno):
@@ -38,14 +38,14 @@ class DjangoDebugToolbarStats(Stats):
         return self.__root
 
 
-class FunctionCall(object):
+class FunctionCall:
     """
     The FunctionCall object is a helper object that encapsulates some of the
     complexity of working with pstats/cProfile objects
 
     """
     def __init__(self, statobj, func, depth=0, stats=None,
-                 id=0, parent_ids=[], hsv=(0, 0.5, 1)):
+                 _id="0", parent_ids=[], hsv=(0, 0.5, 1)):
         self.statobj = statobj
         self.func = func
         if stats:
@@ -53,7 +53,7 @@ class FunctionCall(object):
         else:
             self.stats = statobj.stats[func][:4]
         self.depth = depth
-        self.id = id
+        self.id = _id
         self.parent_ids = parent_ids
         self.hsv = hsv
         self._line_stats_text = None
@@ -96,7 +96,7 @@ class FunctionCall(object):
 
     def subfuncs(self):
         i = 0
-        h, s, v = self.hsv
+        h, s, _ = self.hsv
         count = len(self.statobj.all_callees[self.func])
         for func, stats in self.statobj.all_callees[self.func].items():
             i += 1
@@ -109,7 +109,7 @@ class FunctionCall(object):
                                func,
                                self.depth + 1,
                                stats=stats,
-                               id=str(self.id) + '_' + str(i),
+                               _id=self.id + '_' + str(i),
                                parent_ids=self.parent_ids + [self.id],
                                hsv=(h1, s1, 1))
 
@@ -131,7 +131,7 @@ class FunctionCall(object):
         return tt / nc
 
     def cumtime_per_call(self):
-        cc, nc, tt, ct = self.stats
+        cc, _, __, ct = self.stats
 
         if cc == 0:
             return 0
