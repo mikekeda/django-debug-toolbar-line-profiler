@@ -8,7 +8,7 @@ from pstats import Stats
 from six import PY2
 
 from django.urls import resolve
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
 try:
     from django.utils.six.moves import cStringIO
