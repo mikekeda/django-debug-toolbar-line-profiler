@@ -32,7 +32,7 @@ in August 2008 and was further developed by many contributors.
 Installation
 ============
 
-To install the line_profiler panel, first install this package with ``pip install django-debug-toolbar-line-profiler``, then add debug_toolbar_line_profiler to the INSTALLED_APPS::
+To install the line_profiler panel, first install this package with ``pip install django-debug-toolbar-line-profiling``, then add debug_toolbar_line_profiler to the INSTALLED_APPS::
 
     INSTALLED_APPS = (
         ...
