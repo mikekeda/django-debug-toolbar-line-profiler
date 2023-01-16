@@ -13,7 +13,7 @@ setup(
     license='BSD',
     packages=find_packages(exclude=('tests', 'example')),
     install_requires=[
-        'django>=2.2'
+        'django>=2.2',
         'django-debug-toolbar>=2.0',
         'line_profiler>=1.0b3',
         'six>=1.10',
