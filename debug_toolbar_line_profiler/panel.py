@@ -1,19 +1,13 @@
-from __future__ import absolute_import, division, unicode_literals
-
 from colorsys import hsv_to_rgb
 import cProfile
 import inspect
 import os
 from pstats import Stats
-from six import PY2
 
 from django.urls import resolve
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import mark_safe
-try:
-    from django.utils.six.moves import cStringIO
-except ImportError:
-    from io import StringIO as cStringIO
+from io import StringIO
 from debug_toolbar.panels import Panel
 from django.views.generic.base import View
 
@@ -145,7 +139,7 @@ class FunctionCall:
         if self._line_stats_text is None:
             lstats = self.statobj.line_stats
             if self.func in lstats.timings:
-                out = cStringIO()
+                out = StringIO()
                 fn, lineno, name = self.func
                 try:
                     show_func(fn,
@@ -179,10 +173,7 @@ class ProfilingPanel(Panel):
         self.line_profiler.add_function(func)
         for subfunc in getattr(func, 'profile_additional', []):
             self._unwrap_closure_and_profile(subfunc)
-        if PY2:
-            func_closure = func.func_closure
-        else:
-            func_closure = func.__closure__
+        func_closure = func.__closure__
 
         if func_closure:
             for cell in func_closure:
