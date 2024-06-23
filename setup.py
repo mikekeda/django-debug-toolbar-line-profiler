@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-debug-toolbar-line-profiling',
-    version='0.8.0',
+    version='0.8.1',
     description='A panel for django-debug-toolbar that integrates information from line_profiler',
     long_description=Path('README.rst').read_text(encoding='locale'),
     author='Mykhailo Keda',
